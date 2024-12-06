@@ -4,12 +4,14 @@ import { Svg, Path, Defs, RadialGradient, Stop } from 'react-native-svg';
 import { useFonts } from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import {Dimensions} from 'react-native';
 
 
 export default function Titlescreen() {
     let [fontsLoaded] = useFonts({
         'LeckerliOne': require('@/assets/fonts/LeckerliOne-Regular.ttf'),
     });
+    const windowHeight = Dimensions.get('window').height;
     const progress = useRef(new Animated.Value(0)).current;
     useEffect(() => {
         Animated.timing(progress, {
@@ -29,13 +31,16 @@ export default function Titlescreen() {
     }
 
     return (
-        <SafeAreaView style={styles.titlescreenContainer}>
-            <LinearGradient
+        <>
+        <LinearGradient
                 colors={['rgba(177, 217, 242, 0.61)', 'rgba(207, 231, 246, 0.61)', 'rgba(234, 243, 250, 0.61)']}
                 style={StyleSheet.absoluteFillObject}
             start={{ x: 0, y: 0 }}
             end={{ x: 0, y: 1 }}
             />
+        
+        <SafeAreaView style={styles.titlescreenContainer}>
+            
             <Image
                 source={require('@/assets/images/starduo.png')} 
                 style={styles.starduoImage}
@@ -70,6 +75,7 @@ export default function Titlescreen() {
                 <Animated.View style={[styles.progressBar, { width: progressBarWidth }]} />
             </View>
         </SafeAreaView>
+        </>
     );
 }
 
@@ -78,7 +84,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'linear-gradient(180deg, rgba(177, 217, 242, 0.61) 0%, rgba(207, 231, 246, 0.61) 80.15%, rgba(234, 243, 250, 0.61) 100%)'
+        //backgroundColor: 'linear-gradient(180deg, rgba(177, 217, 242, 0.61) 0%, rgba(207, 231, 246, 0.61) 80.15%, rgba(234, 243, 250, 0.61) 100%)'
     },
     gradientBackground: {
         ...StyleSheet.absoluteFillObject,
@@ -87,7 +93,7 @@ const styles = StyleSheet.create({
         width: 400,
         height: 400,
         position: "absolute",
-        top: 150, 
+        bottom:"40%",
         left: 30,
         right: 30, 
         resizeMode: "contain", 
@@ -95,7 +101,7 @@ const styles = StyleSheet.create({
     },
     line4: {
         position: "absolute",
-        top: 438,
+        bottom:"45%",
         left: 135,
 
     },
@@ -103,7 +109,7 @@ const styles = StyleSheet.create({
         width:366,
         height:100,
         position: "absolute",
-        top: 430,
+        bottom:"42%",
         textAlign: "center",
         color: "rgba(59, 68, 86, 1)",
         fontFamily: "LeckerliOne",
@@ -112,13 +118,13 @@ const styles = StyleSheet.create({
     },
     star2: {
         position: "absolute",
-        top: 465,
+        bottom:"43.5%",
         left: '75%',
     },
     progressBarContainer: {
         position: 'absolute',
-        bottom: 240, 
-        width: 367,
+        bottom: "35%", 
+        width: "80%",
         height: 22,
         backgroundColor: '#FFFFFF',
         borderRadius: 20,

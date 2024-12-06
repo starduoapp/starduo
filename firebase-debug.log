@@ -1,0 +1,21 @@
+[debug] [2024-12-06T03:41:24.129Z] ----------------------------------------------------------------------
+[debug] [2024-12-06T03:41:24.132Z] Command:       /Users/danielzhang/.nvm/versions/node/v20.17.0/bin/node /Users/danielzhang/.nvm/versions/node/v20.17.0/bin/firebase init
+[debug] [2024-12-06T03:41:24.133Z] CLI Version:   13.28.0
+[debug] [2024-12-06T03:41:24.133Z] Platform:      darwin
+[debug] [2024-12-06T03:41:24.133Z] Node Version:  v20.17.0
+[debug] [2024-12-06T03:41:24.133Z] Time:          Thu Dec 05 2024 22:41:24 GMT-0500 (Eastern Standard Time)
+[debug] [2024-12-06T03:41:24.133Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-12-06T03:41:24.135Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-12-06T03:41:24.136Z] > authorizing via signed-in user (zhangdann2006@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/danielzhang/Documents/GitHub/starduo
+
