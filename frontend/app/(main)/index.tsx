@@ -4,10 +4,11 @@ import { HelloWave } from '@/components/HelloWave';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import React from "react";
+import {ScrollView} from "react-native";
 
 export default function HomeScreen() {
   return (
-      <View style={{flex: 1, justifyContent: "center", backgroundColor: "white"}}>
+      <ScrollView contentContainerStyle={{flex: 1, justifyContent: "center", backgroundColor: "white"}}>
         <ThemedView style={styles.titleContainer}>
           <ThemedText type="title">Welcome!</ThemedText>
           <HelloWave />
@@ -34,6 +35,42 @@ export default function HomeScreen() {
           </ThemedText>
         </ThemedView>
         <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="subtitle">Step 2: Explore</ThemedText>
+          <ThemedText>
+            Tap the Explore tab to learn more about what's included in this starter app.
+          </ThemedText>
+        </ThemedView>
+        <ThemedView style={styles.stepContainer}>
           <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
           <ThemedText>
             When you're ready, run{' '}
@@ -43,7 +80,7 @@ export default function HomeScreen() {
             <ThemedText type="defaultSemiBold">app-example</ThemedText>.
           </ThemedText>
         </ThemedView>
-      </View>
+      </ScrollView>
   );
 }
 

@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { StyleSheet, Platform } from 'react-native';
+import {StyleSheet, Platform, View} from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
@@ -16,34 +16,36 @@ export default function TabLayout() {
   return (
     <GestureHandlerRootView style={styles.container}>
       <CounterScreen/>
-      <Tabs
-        screenOptions={({ route }: any) => ({
-          headerShown: false,
-          tabBarButton: HapticTab,
-          tabBarBackground: TabBarBackground,
-          tabBarStyle: Platform.select({
-            ios: {
-              position: "absolute",
-              display: route.name === 'homepage' ? 'none' : 'flex',
-              // Use a transparent background on iOS to show the blur effect
-            },
-            default: {},
-          }),
-        })}>
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: 'Home',
-            tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="counter"
-          options={{
-            href: null
-          }}
-        />
-      </Tabs>
+      <View style={[styles.container, StyleSheet.absoluteFill]}>
+        <Tabs
+          screenOptions={({ route }: any) => ({
+            headerShown: false,
+            tabBarButton: HapticTab,
+            tabBarBackground: TabBarBackground,
+            tabBarStyle: Platform.select({
+              ios: {
+                position: "absolute",
+                display: route.name === 'homepage' ? 'none' : 'flex',
+                // Use a transparent background on iOS to show the blur effect
+              },
+              default: {},
+            }),
+          })}>
+          <Tabs.Screen
+            name="index"
+            options={{
+              title: 'Home',
+              tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+            }}
+          />
+          <Tabs.Screen
+            name="counter"
+            options={{
+              href: null
+            }}
+          />
+        </Tabs>
+      </View>
     </GestureHandlerRootView>
   );
 }

@@ -20,24 +20,32 @@ export default function CounterScreen() {
     'Chilanka': require('@/assets/fonts/Chilanka-Regular.ttf')
   });
   const y = useSharedValue(0);
+  const vy = useSharedValue(0);
   const active = useSharedValue(true);
+  const inView = useSharedValue(true);
   const animatedContainerStyle = useAnimatedStyle(() => {
-    return {transform: [{translateY: withTiming(y.value, {duration: active.value?100:200, easing: active.value?Easing.linear:Easing.ease}) }]};
+    return {transform: [{translateY: withTiming(y.value, {duration: active.value?50:200, easing: Easing.linear}) }]};
   });
   const panGesture = Gesture.Pan()
     .onStart(() => {
       active.value = true;
     })
     .onChange((e: any) => {
-      if (e.translationY < 0) {
+      if (e.translationY < 0 && inView.value) {
         y.value = e.translationY;
+        vy.value = e.velocityY;
+      } else if (e.translationY > 0 && !inView.value) {
+        y.value = -windowHeight + e.translationY;
+        vy.value = e.velocityY;
       }
     })
     .onEnd(() => {
-      if (y.value > -windowHeight / 2) {
+      if ((y.value > -windowHeight/2 && vy.value > -40) || (y.value > windowHeight/2 || vy.value > 40)) {
         y.value = 0;
+        inView.value = true;
       } else {
         y.value = -windowHeight;
+        inView.value = false;
       }
       active.value = false;
     });
@@ -62,7 +70,7 @@ export default function CounterScreen() {
         <Text style={styles.orbitText}>Swipe up</Text>
         <Arrow width={25} height={25} />
       </View>
-      <View style={{position:"absolute", bottom:"20%", width:"80%", left: "10%"}}>
+      <View style={{position:"absolute", bottom:"25%", width:"80%", left: "10%"}}>
         <Text style={styles.dearText}>Dear <Text style={{color:"#4366AAFF"}}>Planet B612</Text>,</Text>
         <Text style={styles.orbitText}>You have been orbiting
           with <Text style={{color:"#4366AAFF"}}>Planet ABC</Text> for
@@ -70,7 +78,7 @@ export default function CounterScreen() {
         </Text>
       </View>
       <GestureDetector gesture={panGesture}>
-        <Animated.View style={{position: "absolute", width: "100%", height: 100, bottom: 0, backgroundColor: "#ffffff50"}}/>
+        <Animated.View style={{position: "absolute", width: "100%", height: windowHeight+100, top: 0}}/>
       </GestureDetector>
     </Animated.View>
   );
@@ -80,8 +88,9 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    position: "relative",
-    flex: 1
+    position: "sticky",
+    flex: 1,
+    zIndex: 3
   },
   pinkPlanet: {
     position: "absolute",
