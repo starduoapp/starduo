@@ -8,14 +8,15 @@ import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import {GestureHandlerRootView} from "react-native-gesture-handler";
-import CounterScreen from "@/app/(main)/counter";
+import CounterScreen from "./counter";
+import Loadingscreen from './loading';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <GestureHandlerRootView style={styles.container}>
-      <CounterScreen/>
+      <Loadingscreen/>
       <View style={[styles.container, StyleSheet.absoluteFill]}>
         <Tabs
           screenOptions={({ route }: any) => ({
@@ -26,15 +27,14 @@ export default function TabLayout() {
               ios: {
                 position: "absolute",
                 display: route.name === 'homepage' ? 'none' : 'flex',
-                // Use a transparent background on iOS to show the blur effect
               },
               default: {},
             }),
           })}>
           <Tabs.Screen
-            name="index"
+            name="loading"
             options={{
-              title: 'Home',
+              title: 'Loading',
               tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
             }}
           />

@@ -2,12 +2,16 @@ import {Pressable, Image, Text, StyleSheet, Platform, View, TextInput} from 'rea
 import {useState} from 'react';
 import {LinearGradient} from 'expo-linear-gradient';
 import {useFonts} from 'expo-font';
+import { useRouter } from 'expo-router'; 
 
 export default function loginPage(){
     const [text, onChangeText] = useState('Useless Text');
     const [fontsLoaded] = useFonts({
         'DynaPuffRegular': require('@/assets/fonts/DynaPuff-Regular.ttf')
       });
+    const router = useRouter(); 
+    const handleCounter = () => {router.push('/counter');};
+
     return (
         <View style={{flex:1, alignItems:"center", justifyContent:"center"}}>
             <LinearGradient
@@ -23,7 +27,7 @@ export default function loginPage(){
                 <TextInput style={styles.inputField}/>
                 <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:20, marginTop:30}}>Password:</Text>
                 <TextInput secureTextEntry={true} style={styles.inputField}/>
-                <Pressable style={styles.signinButton}>
+                <Pressable style={styles.signinButton}onPress={handleCounter}>
                     <Text style={styles.signinText}>Sign in</Text>
                 </Pressable>
             </View>
