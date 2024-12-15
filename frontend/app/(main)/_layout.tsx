@@ -32,13 +32,6 @@ export default function TabLayout() {
             }),
           })}>
           <Tabs.Screen
-            name="loading"
-            options={{
-              title: 'Loading',
-              tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-            }}
-          />
-          <Tabs.Screen
             name="counter"
             options={{
               href: null

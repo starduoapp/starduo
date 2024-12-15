@@ -27,13 +27,15 @@ export default function loginPage(){
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}/>
             <View style={styles.signinContainer}>
-                <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:40}}>Login</Text>
+                <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:35}}>Create Account</Text>
+                <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:20, marginTop:30}}>Email:</Text>
+                <TextInput style={styles.inputField}/>
                 <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:20, marginTop:30}}>Username:</Text>
                 <TextInput style={styles.inputField}/>
                 <Text style={{fontFamily:"DynaPuffRegular", color:"#4366AAFF", fontSize:20, marginTop:30}}>Password:</Text>
                 <TextInput secureTextEntry={true} style={styles.inputField}/>
                 <Pressable style={styles.signinButton} onPress={handleCounter}>
-                    <Text style={styles.signinText}>Sign in</Text>
+                    <Text style={styles.signinText}>Register</Text>
                 </Pressable>
             </View>
             

@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
       },
     starduoImage: {
-        width: 400,
+        width: "auto",
         height: 400,
         position: "absolute",
         bottom:"40%",
